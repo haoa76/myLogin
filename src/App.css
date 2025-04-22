@@ -1,38 +1,60 @@
+#root {
+    width: 100%;
+    height: 100%;
+}
+
 .App {
-  text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-left {
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    /* 设置左边背景图属性 */
+    background-image: url("../src/images/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-right {
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.or-divider {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 16px;
+    margin: 20px 0;
 }
 
-.App-link {
-  color: #61dafb;
+/* 采用伪对象选择器实现分割线效果 */
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 0 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .App-left {
+        display: none;
+    }
+
+    .App-right {
+        flex: 1;
+        width: 100%; 
+    }
 }
